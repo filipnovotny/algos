@@ -36,7 +36,10 @@ class BinaryTree(object):
     """three object, stores the root node"""
     def __init__(self, *args, **kwargs):
         super(BinaryTree, self).__init__()
-        self._root = BinaryNode(None, args[0])
+        if len(args)>0:
+            self._root = args[0]
+        else:
+            self._root = BinaryNode(None, args[0])
 
     def get_root(self):
         """returns root of tree"""

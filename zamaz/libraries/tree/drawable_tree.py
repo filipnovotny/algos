@@ -18,9 +18,9 @@ class DrawableTree(object):
     def nodes_to_graph(self):
         self.get_root().compute_edges()
 
-        edges = [("{}".format(edge[0]),"{}".format(edge[1])) for edge in self.get_root().edges]
+        edges = [("{} : {}".format(edge[0],edge[0].deco),"{} : {}".format(edge[1],edge[1].deco)) for edge in self.get_root().edges]
         self._graph.add_edges_from(edges)
-        self._pos = hierarchy_pos(self.graph,"{}".format(self.get_root().data))
+        self._pos = hierarchy_pos(self.graph,"{} : {}".format(self.get_root().data,self.get_root().deco))
 
     @property
     def graph(self):
